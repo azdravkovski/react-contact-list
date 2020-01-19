@@ -43,8 +43,7 @@ export default class Tabs extends Component {
     this.setState(
       {
         activeTab: tab
-      },
-      () => console.log(this.state.activeTab)
+      }
     );
   };
 

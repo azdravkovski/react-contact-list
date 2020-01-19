@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Contacts.css";
+import Contact from "./Contact";
 
 export default class Contacts extends Component {
   renderContactEntries = () => {};
@@ -8,7 +9,7 @@ export default class Contacts extends Component {
     return (
       <div className="contacts">
         <ul>
-          <li>Name, SURNAME</li>
+          
         </ul>
       </div>
     );

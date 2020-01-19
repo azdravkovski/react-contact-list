@@ -1,6 +1,18 @@
 .contacts {
+  display: flex;
+  flex-direction: column;
   border: 1px solid black;
   border-top: none;
   height: 95%;
   background-color: #aaa;
+}
+
+.contacts ul {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 30px;
+  height: 95%;
 }

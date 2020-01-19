@@ -1,0 +1,11 @@
+.contact {
+  border-bottom: dashed #ccc;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 200px;
+  cursor: pointer;
+}
+
+.contact:hover {
+  color: #ccc;
+}

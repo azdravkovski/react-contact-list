@@ -1,0 +1,33 @@
+.tab {
+  display: flex;
+  width: 15px;
+  justify-content: space-evenly;
+  border: 1px solid black;
+  border-right: none;
+  flex-basis: 0;
+  flex-grow: 1;
+  cursor: pointer;
+  border-top-right-radius: 25%;
+  border-top-left-radius: 25%;
+  background-color: #aaa;
+}
+
+.count {
+  font-size: 8px;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 2px;
+}
+
+.tab-active {
+  border-bottom: none;
+}
+
+.zero-count {
+  pointer-events: none;
+  color: #ccc;
+}
+
+.tab:last-child {
+  border-right: 1px solid black;
+}

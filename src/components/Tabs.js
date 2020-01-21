@@ -6,7 +6,8 @@ import config from "../config.json";
 export default class Tabs extends Component {
   state = {
     activeTab: config.tabs[0],
-    count: []
+    count: [],
+    fullNames: [] //needs default state to be "a"
   };
 
   componentDidMount = () => {
@@ -21,11 +22,23 @@ export default class Tabs extends Component {
         let lastNames = results.map(person => {
           return person.name.last;
         });
-        console.log(lastNames);
 
-        this.setState({
-          count: this.handleLetterCount(lastNames)
-        });
+        let fullNames = results
+          .map(person => {
+            return { firstName: person.name.first, lastName: person.name.last };
+          })
+          .filter(person => person.firstName.toLowerCase().charCodeAt(0) - 97 < 26);
+
+        // console.log(lastNames);
+        // console.log(fullNames);
+
+        this.setState(
+          {
+            count: this.handleLetterCount(lastNames),
+            fullNames: fullNames
+          },
+          () => console.table(this.state.fullNames)
+        );
       })
       .catch(error => console.log(error));
   };
@@ -43,7 +56,7 @@ export default class Tabs extends Component {
     this.setState(
       {
         activeTab: tab
-      },
+      }
       // () => console.log(this.state.activeTab)
     );
   };

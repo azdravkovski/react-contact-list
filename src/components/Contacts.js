@@ -3,6 +3,11 @@ import "./Contacts.css";
 import Contact from "./Contact";
 
 export default class Contacts extends Component {
+  state = {
+    activeContactTab: 'a',
+    renderedContacts: []
+  }
+  
   renderContactEntries = () => {};
 
   render() {

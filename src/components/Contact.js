@@ -1,10 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Contact.css";
 
-export default class Contact extends Component {
-  render() {
-    return (
-        <li className="contact">Name, SURNAME</li>
-    );
-  }
-}
+const Contact = (props) => {
+  return (
+    <li
+      onClick={() => console.log("Contact Card appeared!")}
+      className="contact"
+    >
+      {props.firstName}, {props.lastName}
+    </li>
+  );
+};
+
+export default Contact;

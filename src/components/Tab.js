@@ -8,7 +8,7 @@ const Tab = props => {
         "tab " +
         ((props.isActive && "tab-active ") || (!props.count && "zero-count "))
       }
-      onClick={() => props.onClick(props.letter)}
+      onClick={() => props.toggleActiveTab(props.letter)}
     >
       <div className="letter">{props.letter}</div>
       <div className="count">{props.count}</div>

@@ -3,15 +3,16 @@ import "./Contacts.css";
 import Contact from "./Contact";
 
 const Contacts = props => {
+  const { namesList } = props;
   const renderNames = () => {
-    return props.namesList.map((name, i) => {
+    return namesList.map((name, i) => {
       if (name.lastName[0].toLowerCase() === props.activeTab) {
         return (
           <Contact
             firstName={name.firstName}
             lastName={name.lastName.toUpperCase()}
             key={i}
-            showContactCard={() => props.showContactCard()}
+            setActiveContact={props.setActiveContact}
           />
         );
       }

@@ -8,9 +8,10 @@ import config from "../config.json";
 export default class ContactList extends Component {
   state = {
     activeTab: config.tabs[0],
+    activeContact: null,
     count: [],
     fullNames: [],
-    personDetails: [],
+    contactDetails: [],
     isShown: false
   };
 
@@ -35,7 +36,7 @@ export default class ContactList extends Component {
             person => person.firstName.toLowerCase().charCodeAt(0) - 97 < 26
           );
 
-        let personDetails = results.map(person => {
+        let contactDetails = results.map(person => {
           return {
             name: `${person.name.last} ${person.name.first}`,
             email: person.email,
@@ -45,7 +46,8 @@ export default class ContactList extends Component {
             state: person.location.state,
             postcode: person.location.postcode,
             image: person.picture.thumbnail,
-            username: person.login.username
+            username: person.login.username,
+            uuid: person.login.uuid
           };
         });
 
@@ -53,9 +55,9 @@ export default class ContactList extends Component {
           {
             count: this.handleLetterCount(lastNames),
             fullNames: fullNames,
-            personDetails: personDetails
+            contactDetails: contactDetails
           },
-          () => console.log(this.state.personDetails)
+          () => console.log(this.state.contactDetails)
         );
       })
       .catch(error => console.log(error));
@@ -71,16 +73,19 @@ export default class ContactList extends Component {
   };
 
   toggleActiveTab = tab => {
-    this.setState(
-      {
-        activeTab: tab
-      }
-      // () => console.log(this.state.activeTab)
-    );
+    this.setState({
+      activeTab: tab
+    });
   };
 
-  showContactCard = () => {
-    this.setState({ isShown: true });
+  setActiveContact = contact => {
+    this.setState(
+      {
+        isShown: true,
+        activeContact: contact
+      },
+      () => console.log(this.state.activeContact)
+    );
   };
 
   hideContactCard = () => {
@@ -88,7 +93,7 @@ export default class ContactList extends Component {
   };
 
   render() {
-    const { activeTab, count, fullNames, personDetails, isShown } = this.state;
+    const { activeTab, activeContact, count, fullNames, contactDetails, isShown } = this.state;
 
     return (
       <div className="contact-app-container">
@@ -97,8 +102,17 @@ export default class ContactList extends Component {
           count={count}
           toggleActiveTab={this.toggleActiveTab}
         />
-        <Contacts namesList={fullNames} activeTab={activeTab} showContactCard={this.showContactCard} />
-        <ContactCard isShown={isShown} hide={this.hideContactCard} />
+        <Contacts
+          namesList={fullNames}
+          activeTab={activeTab}
+          setActiveContact={this.setActiveContact}
+        />
+        <ContactCard
+          isShown={isShown}
+          hide={this.hideContactCard}
+          contactDetails={contactDetails}
+          activeContact = {activeContact}
+        />
       </div>
     );
   }

@@ -10,7 +10,7 @@ const Tabs = (props) => {
       <Tab
         letter={letter}
         key={i}
-        onClick={() => props.toggleActiveTab(letter)}
+        toggleActiveTab={() => props.toggleActiveTab(letter)}
         count={props.count[i]}
         isActive={props.activeTab === letter}
       />

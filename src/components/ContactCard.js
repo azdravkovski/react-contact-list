@@ -17,12 +17,12 @@ const ContactCard = props => {
               ></img>
               <section className="user-details">
                 <p className="name">{contact.name}</p>
-                <p className="email">email {contact.email}</p>
-                <p className="phone">phone {contact.phone}</p>
-                <p className="street">street {contact.street}</p>
-                <p className="city">city {contact.city}</p>
-                <p className="state">state {contact.state}</p>
-                <p className="postcode">postcode {contact.postcode}</p>
+                <p className="email">email <span className="bolded">{contact.email}</span></p>
+                <p className="phone">phone <span className="bolded">{contact.phone}</span></p>
+                <p className="street">street <span className="bolded">{contact.street}</span></p>
+                <p className="city">city <span className="bolded">{contact.city}</span></p>
+                <p className="state">state <span className="bolded">{contact.state}</span></p>
+                <p className="postcode">postcode <span className="bolded">{contact.postcode}</span></p>
               </section>
               <div className="username">USERNAME {contact.username}</div>
             </section>

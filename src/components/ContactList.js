@@ -45,9 +45,8 @@ export default class ContactList extends Component {
             city: person.location.city,
             state: person.location.state,
             postcode: person.location.postcode,
-            image: person.picture.thumbnail,
+            image: person.picture.medium,
             username: person.login.username,
-            uuid: person.login.uuid
           };
         });
 

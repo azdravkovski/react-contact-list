@@ -4,7 +4,7 @@ import "./Contact.css";
 const Contact = (props) => {
   return (
     <li
-      onClick={() => console.log("Contact Card appeared!")}
+      onClick={() => props.showContactCard()}
       className="contact"
     >
       {props.firstName}, {props.lastName}

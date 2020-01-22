@@ -1,6 +1,7 @@
 .contact-app-container {
   height: 600px;
   width: 1200px;
+  position: relative;
 }
 
 .tabs-list {

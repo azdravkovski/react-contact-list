@@ -11,6 +11,7 @@ const Contacts = props => {
             firstName={name.firstName}
             lastName={name.lastName.toUpperCase()}
             key={i}
+            showContactCard={() => props.showContactCard()}
           />
         );
       }
